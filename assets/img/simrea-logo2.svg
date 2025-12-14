@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" width="360" height="120" role="img" aria-label="Simrea logo — embossed, transparent background">
+  <!-- Palette: up to 4 tones based on the underlying background (no solid backdrop).
+       We rely on transparency and filters to create an engraved/embossed look.
+       Strokes: #222 (ink), highlights use white via filter only (no fill backdrop). -->
+  <defs>
+    <!-- Inner bevel/engrave filter: creates highlight on one edge and shadow on the opposite edge -->
+    <filter id="innerBevel" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
+      <!-- Alpha of the source -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.4" result="blur"/>
+      <!-- Shadow (down-right) -->
+      <feOffset in="blur" dx="1.2" dy="1.2" result="shadow"/>
+      <feColorMatrix in="shadow" type="matrix" values="
+         0 0 0 0 0.15
+         0 0 0 0 0.15
+         0 0 0 0 0.15
+         0 0 0 0.45 0" result="shadowTint"/>
+      <!-- Highlight (up-left) -->
+      <feOffset in="blur" dx="-1.2" dy="-1.2" result="light"/>
+      <feColorMatrix in="light" type="matrix" values="
+         0 0 0 0 1
+         0 0 0 0 1
+         0 0 0 0 1
+         0 0 0 0.65 0" result="lightTint"/>
+      <!-- Combine highlight + shadow -->
+      <feComposite in="lightTint" in2="shadowTint" operator="lighter" result="bevelMap"/>
+      <!-- Clip to the glyphs (inside only) -->
+      <feComposite in="bevelMap" in2="SourceAlpha" operator="in" result="innerBevel"/>
+      <!-- Merge original graphic with inner bevel -->
+      <feComposite in="innerBevel" in2="SourceGraphic" operator="over"/>
+    </filter>
+
+    <!-- Thin stroke style to match Xerox Star-like document line aesthetics -->
+    <style><![CDATA[
+      .ink { stroke:#222; fill:none; stroke-linecap:square; stroke-linejoin:miter; }
+      .mark { stroke-width:4; }
+      .word { fill:#222; font-family:'Times New Roman','Georgia',serif; font-weight:600; }
+    ]]></style>
+  </defs>
+
+  <!-- Star motif (8 rays) -->
+  <g class="ink mark" filter="url(#innerBevel)">
+    <line x1="48" y1="10" x2="48" y2="30"/>
+    <line x1="48" y1="90" x2="48" y2="110"/>
+    <line x1="10" y1="50" x2="30" y2="50"/>
+    <line x1="66" y1="50" x2="86" y2="50"/>
+    <line x1="18" y1="18" x2="30" y2="30"/>
+    <line x1="66" y1="82" x2="78" y2="94"/>
+    <line x1="66" y1="30" x2="78" y2="18"/>
+    <line x1="18" y1="94" x2="30" y2="82"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g filter="url(#innerBevel)">
+    <text class="word" x="110" y="78" font-size="56">Simrea</text>
+  </g>
+</svg>

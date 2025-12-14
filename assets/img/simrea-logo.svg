@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <g transform="skewX(-20)">
+    <text x="50" y="140"
+          font-family="'OCR-A', 'Courier', monospace"
+          font-size="120"
+          fill="#d6d1c8"
+          letter-spacing="2">SimRea</text>
+  </g>
+</svg>

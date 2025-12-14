@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Simreaホームページ。" />
+  <title>Simrea</title>
+  <!-- favicon（シンプルな白紙アイコン） -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='12' y='8' width='40' height='48' fill='white' stroke='black' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/star.css" />
+</head>
+<body>
+  <!-- デスクトップ領域 -->
+  <main id="desktop" class="desktop" role="main" aria-label="デスクトップ">
+    <!-- ロゴ（SVG） -->
+    <img src="assets/img/simrea-logo.svg" alt="Simrea ロゴ" class="logo-img" />
+
+    <!-- 右下アイコンドック -->
+    <section class="icon-dock" aria-label="ランチャー">
+      <button class="icon" data-target="profile" aria-label="プロフィール">
+        <div class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="ドキュメント">
+            <rect x="14" y="8" width="34" height="48" fill="#fff" stroke="#222" stroke-width="2"/>
+            <line x1="20" y1="20" x2="46" y2="20" stroke="#222" stroke-width="2"/>
+            <line x1="20" y1="28" x2="46" y2="28" stroke="#222" stroke-width="2"/>
+            <line x1="20" y1="36" x2="46" y2="36" stroke="#222" stroke-width="2"/>
+          </svg>
+        </div>
+        <span class="icon-label">プロフィール</span>
+      </button>
+
+      <button class="icon" data-target="portfolio" aria-label="作品フォルダ">
+        <div class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="フォルダ">
+            <path d="M10 24 h16 l4 -6 h24 v28 H10 Z" fill="#fff" stroke="#222" stroke-width="2"/>
+          </svg>
+        </div>
+        <span class="icon-label">作品フォルダ</span>
+      </button>
+
+      <!-- 
+      <button class="icon" data-target="contact" aria-label="連絡箱">
+        <div class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="連絡箱">
+            <rect x="10" y="22" width="44" height="22" fill="#fff" stroke="#222" stroke-width="2"/>
+            <polyline points="10,22 32,38 54,22" fill="none" stroke="#222" stroke-width="2"/>
+          </svg>
+        </div>
+        <span class="icon-label">連絡箱</span>
+      </button>
+
+      <button class="icon" data-target="trash" aria-label="ごみ箱">
+        <div class="icon-art" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="ごみ箱">
+            <rect x="18" y="16" width="28" height="36" fill="#fff" stroke="#222" stroke-width="2"/>
+            <rect x="16" y="12" width="32" height="6" fill="#fff" stroke="#222" stroke-width="2"/>
+            <line x1="26" y1="20" x2="26" y2="48" stroke="#222" stroke-width="2"/>
+            <line x1="32" y1="20" x2="32" y2="48" stroke="#222" stroke-width="2"/>
+            <line x1="38" y1="20" x2="38" y2="48" stroke="#222" stroke-width="2"/>
+          </svg>
+        </div>
+        <span class="icon-label">ごみ箱</span>
+      </button>
+      -->
+    </section>
+  </main>
+
+  <!-- ウィンドウテンプレート群 -->
+  <template id="tmpl-profile">
+    <article class="window-body">
+      <h1> SimRea </h1>
+      <p> SimRea(シムレア)を屋号に個人事業主として税務署に登録しています。企業の正社員でもあります。
+      </p>
+      <h2>技術ポートフォリオ</h2>
+      <p>組込みソフトウェア開発、数値計算、FPGA、回路設計・基板設計の業務経験があります
+      </p>
+      <h2>業務経験</h2>
+      <ul>
+        <li>言語: asm, c, c++, fortran, haskell, vhdl</li>
+        <li>OS: Windows, Linux, Android</li>
+        <li>組込み: 携帯電話基地局開発(3GPP), 試験装置</li>
+        <li>数値計算: 樹脂流動解析(FEM, FVM, FDM)</li>
+        <li>回路設計: デジタル回路(～100MHz)</li>
+        <li>研究開発: GPS測位(搬送波位相差測位など),画像処理</li>
+      </ul>
+      <h2>その他:趣味</h2>
+      <ul>
+        <li>3D: OpenGL / G3D </li>
+        <li>VR: OpenGL + Oculus SDK / G3D + Oculus SDK</li>
+        <li>Web: Django(Python)</li>
+      </ul>
+    </article>
+  </template>
+
+  <template id="tmpl-portfolio">
+    <article class="window-body">
+      <h1>作品フォルダ</h1>
+      <p>制作物の一部。各項目は別ウィンドウで詳細を開けます。</p>
+      <div class="cards">
+        <button class="card" data-subwindow-title="VR" data-subwindow-content="<p>Data Flow Programming</p><p><strong>技術:</strong> OpenGL, G3D, Haskell, C++</p>">
+          <strong>3Dツール</strong>
+          <span>プログラミング環境</span>
+        </button>
+      </div>
+      <hr/>
+      <!-- 
+      <button class="btn" id="btn-properties">作品のプロパティ</button>
+      -->
+    </article>
+  </template>
+
+  <!-- 
+  <template id="tmpl-contact">
+    <article class="window-body">
+      <h1>連絡箱</h1>
+      <p>お問い合わせは以下からどうぞ。</p>
+      <form id="contact-form" class="contact-form" onsubmit="return false;">
+        <label>お名前<input type="text" name="name" required></label>
+        <label>メール<input type="email" name="email" required></label>
+        <label>メッセージ<textarea name="message" required></textarea></label>
+        <div class="form-actions">
+          <button class="btn primary" type="submit">送信</button>
+        </div>
+        <p class="note">※ GitHub Pagesでも動作するよう、フォーム送信先は外部サービスに設定できます（Formspree等）。</p>
+      </form>
+    </article>
+  </template>
+
+  <template id="tmpl-trash">
+    <article class="window-body">
+      <h1>ごみ箱</h1>
+      <p>ここに削除した項目が表示されます（デモ）。</p>
+      <ul id="trash-list" class="list"></ul>
+    </article>
+  </template>
+  -->
+
+  <template id="tmpl-properties">
+    <article class="window-body">
+      <h1>プロパティ</h1>
+      <form class="properties-form" onsubmit="return false;">
+        <label>カテゴリ
+          <select name="category">
+            <option>3D</option>
+            <option>VR</option>
+            <option>FEM</option>
+          </select>
+        </label>
+        <label>タグ<input type="text" name="tags" placeholder="3D, VR, FEM" /></label>
+        <label>公開URL<input type="url" name="url" placeholder="https://example.com" /></label>
+        <div class="form-actions">
+          <button class="btn" type="submit">保存（デモ）</button>
+        </div>
+      </form>
+      <p class="note">※ このプロパティはデモ用で永続化はしません。</p>
+    </article>
+  </template>
+
+  <script src="assets/js/star.js"></script>
+</body>
+</html>
